@@ -1,0 +1,86 @@
+{
+  "stats": {
+    "suites": 0,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-07-10T08:27:37.238Z",
+    "end": "2024-07-10T08:28:15.113Z",
+    "duration": 37875,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e61d42d1-682f-4b87-aa71-a35f106eea38",
+      "title": "",
+      "fullFile": "cypress\\e2e\\motor.cy.js",
+      "file": "cypress\\e2e\\motor.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "GDIC CI Motor test",
+          "fullTitle": "GDIC CI Motor test",
+          "timedOut": null,
+          "duration": 37800,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "//  1. a Searching product like motor\ncy.visit('https://cisqatest.green-delta.com/');\n//cy.screenshot()\ncy.get('#searchIcon > span > .fas').click();\n//cy.screenshot();\ncy.get('.proinput').type('Motor{enter}');\n//cy.screenshot()\n//b(i) checking mandatory fields\ncy.visit('https://cal.green-delta.com/motor-insurance/');\ncy.get('#getMotorQuoteButton').click();\n//cy.screenshot()\n//b(ii) check numeric value\ncy.visit('https://cal.green-delta.com/motor-insurance/');\ncy.get('#sumInsured').click();\ncy.get('#sumInsured').type('w');\n//cy.screenshot()\n//cy.wait(10000);\n//b (iii) select vehicle type like 'Car'\ncy.visit('https://cal.green-delta.com/motor-insurance/');\ncy.get('#motorProductName').select('Car').should('have.value', 'Car');\n//cy.screenshot()\n// b(v)Terms of use clicking\ncy.visit('https://cal.green-delta.com/motor-insurance/');\ncy.get('.footer-bottom-list > li > a').click();\n//cy.screenshot()\n// b(iv) clicking back option\ncy.go('back');\n//cy.screenshot()\n//b(vi)After clicking Back option will be clickable and successfully landing page\ncy.get('#motorProductStep > fieldset > h5').invoke('text').then(textOfElement => {\n  expect(textOfElement.trim()).to.equal('Effective Insurance provider for vehicles');\n  //cy.screenshot()\n  //b(ii) check numeric value\n  cy.visit('https://cal.green-delta.com/motor-insurance/');\n  cy.get('#sumInsured').type('p');\n  cy.get('#bikeccvalue').click();\n  //cy.screenshot()\n  //extra tests\n  cy.get('#bikeccvalue').type('Motor{enter}');\n  cy.get('#bikeccvalue').click();\n  cy.get('#bikeccvalue').type(\"mm\");\n  //full form submission\n  cy.visit('https://cal.green-delta.com/motor-insurance/');\n  cy.get('#motorProductName').select('Car').should('have.value', 'Car');\n  cy.get('#vehicleType').select('Private').should('have.value', 'Private');\n  cy.get('#noofpassenger').type('6');\n  cy.get('#ccorton').select('SEAT').should('have.value', 'SEAT');\n  cy.get('#bikeccvalue').type('10');\n  cy.get('#sumInsured').type('10000');\n  cy.get('#policyPeriod').select('Full').should('have.value', 'Full');\n  cy.get('#vehicleRegistrationNumber').type('E-0017');\n  cy.get('#customerSearchType').select('MobileNo').should('have.value', 'MobileNo');\n  cy.get('#comprehensiveCustomerSearchTypeValue').type('+8801545201258');\n  cy.screenshot();\n  cy.get('#riotAndStrike').click();\n  //cy.screenshot()\n  //fill up other mandatory fields\n  cy.get('#noofdriver').type('1');\n  cy.get('#policyStartDate').click();\n  cy.get('.ui-datepicker-days-cell-over > .ui-state-default').click();\n  //cy.screenshot()\n  cy.get('#getMotorQuoteButton').click();\n  //cy.screenshot()\n  //back button click after successful submission\n  cy.get('#motorsumInsuredBox > .top-nav > li > .mt-1').click();\n  //cy.screenshot()\n});",
+          "err": {},
+          "uuid": "061432fa-c39a-4145-b045-ec9faed29289",
+          "parentUUID": "e61d42d1-682f-4b87-aa71-a35f106eea38",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [
+        "061432fa-c39a-4145-b045-ec9faed29289"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 37800,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
