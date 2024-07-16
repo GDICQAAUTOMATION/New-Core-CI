@@ -34,6 +34,42 @@ describe('GDIC CI Motor test', () => {
     // Click the button again if necessary (this might be redundant)
     cy.get('[style="align-items: center;"] > .btn').click();
 
+    // Open the customer type dropdown menu
+    cy.get('ng-select[formcontrolname="customerType"]').click();
+    //cy.screenshot()
+
+    // Wait for the dropdown options to be visible and select "BUSINESS"
+    cy.get('.ng-dropdown-panel .ng-option').contains('PERSONAL').click({ force: true });
+
+    // Verify the selection
+    cy.get('ng-select[formcontrolname="customerType"] .ng-value-container')
+      .should('contain', 'PERSONAL');
+
+
+    // Fill in the customer form fields (adjust selectors and inputs as necessary)
+    cy.get('form.ng-untouched > #required-fields > :nth-child(2) > .input-group > .form-control').type('Test Business Customer');
+    cy.get('form.ng-untouched > #required-fields > :nth-child(3) > .input-group > .form-control').type('123 Test Street, Test City');
+    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(5) > .input-group > .form-control').type('01878657890');
+    cy.get(':nth-child(17) > .customer__edit__modal > .modal-content > app-add-customer-modal > .modal__control > .modal-body > .ng-invalid.ng-touched > #required-fields > :nth-child(16) > .input-group > .form-control').type('test@example.com');
+    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(8)').type('Munshigange')
+    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(9) > .input-group > .form-control').type('3467829098')
+
+
+    // Save the customer
+    cy.get('form.ng-dirty > .modal-footer > .btn-primary').click();
+    cy.get('.confirm__modal__content > .btn-primary').click()
+    //cy.get('.confirm__modal__content > .btn').click()
+
+    // Verify the customer was added (adjust based on your application's behavior)
+    //cy.get('.notification-message').should('contain', 'Customer Created successfully');
+    cy.get('form.ng-dirty > .modal-footer > .btn-light').click()
+
+    //checking data:
+    cy.get('.menu-item-active > .menu-link > .menu-text').click()
+    cy.get('.card-toolbar > .btn').click()
+    
+  
+
    
   });
 });
