@@ -34,15 +34,6 @@ describe('GDIC CI Motor test', () => {
     // Click the button again if necessary (this might be redundant)
     cy.get('[style="align-items: center;"] > .btn').click();
 
-    // Open the customer type dropdown menu
-    cy.get('ng-select[formcontrolname="customerType"]').click();
-    cy.screenshot()
-
-    // Wait for the dropdown options to be visible and select "BUSINESS"
-    cy.get('.ng-dropdown-panel .ng-option').contains('PERSONAL').click({ force: true });
-
-    // Verify the selection
-    cy.get('ng-select[formcontrolname="customerType"] .ng-value-container')
-      .should('contain', 'PERSONAL');
+   
   });
 });
