@@ -25,7 +25,7 @@ describe('GDIC CI Motor test', () => {
     // Navigate to the motor insurance module
     cy.get(':nth-child(3) > .menu-toggle > .menu-arrow').click();
     cy.get('.menu-item-open > .menu-submenu > .menu-subnav > :nth-child(4) > .menu-link > .menu-text').click();
-    //cy.screenshot();
+   // cy.screenshot();
 
     // Click on the buttons to proceed
     cy.get('.card-toolbar > .btn').click();
@@ -36,12 +36,13 @@ describe('GDIC CI Motor test', () => {
 
     // Open the customer type dropdown menu
     cy.get('ng-select[formcontrolname="customerType"]').click();
+    cy.screenshot()
 
     // Wait for the dropdown options to be visible and select "BUSINESS"
-    cy.get('.ng-dropdown-panel .ng-option').contains('BUSINESS').click({ force: true });
+    cy.get('.ng-dropdown-panel .ng-option').contains('PERSONAL').click({ force: true });
 
     // Verify the selection
     cy.get('ng-select[formcontrolname="customerType"] .ng-value-container')
-      .should('contain', 'BUSINESS');
+      .should('contain', 'PERSONAL');
   });
 });
