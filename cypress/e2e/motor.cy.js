@@ -49,26 +49,23 @@ describe('GDIC CI Motor test', () => {
     // Fill in the customer form fields (adjust selectors and inputs as necessary)
     cy.get('form.ng-untouched > #required-fields > :nth-child(2) > .input-group > .form-control').type('Test Business Customer');
     cy.get('form.ng-untouched > #required-fields > :nth-child(3) > .input-group > .form-control').type('123 Test Street, Test City');
-    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(5) > .input-group > .form-control').type('01878657890');
+    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(5) > .input-group > .form-control').type('01478647895');
     cy.get(':nth-child(17) > .customer__edit__modal > .modal-content > app-add-customer-modal > .modal__control > .modal-body > .ng-invalid.ng-touched > #required-fields > :nth-child(16) > .input-group > .form-control').type('test@example.com');
     cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(8)').type('Munshigange')
-    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(9) > .input-group > .form-control').type('3467829098')
+    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(9) > .input-group > .form-control').type('9562139048')
 
 
     // Save the customer
     cy.get('form.ng-dirty > .modal-footer > .btn-primary').click();
-    cy.get('.confirm__modal__content > .btn-primary').click()
-    //cy.get('.confirm__modal__content > .btn').click()
+
+    // Wait for the confirmation modal to appear and click the primary button
+    cy.get('.confirm__modal__content > .btn-primary').should('be.visible').click();
+
+    // Click the "OK" button in the confirmation modal
+    cy.get('.confirm__modal__content > .btn.btn-primary').contains('OK').should('be.visible').click();
 
     // Verify the customer was added (adjust based on your application's behavior)
-    //cy.get('.notification-message').should('contain', 'Customer Created successfully');
-    cy.get('form.ng-dirty > .modal-footer > .btn-light').click()
-
-    //checking data:
-    cy.get('.menu-item-active > .menu-link > .menu-text').click()
-    cy.get('.card-toolbar > .btn').click()
-    
-  
+   // cy.get('.notification-message').should('contain', 'Customer Created successfully');
 
    
   });
