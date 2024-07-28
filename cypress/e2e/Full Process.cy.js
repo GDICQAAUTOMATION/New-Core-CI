@@ -30,10 +30,52 @@ describe('GDIC CI Motor test', () => {
     cy.get(':nth-child(1) > .sorting_1 > .checkbox > span').click();
     cy.get('.flex-between > [style="align-items: center;"] > :nth-child(2) > .btn').click();
 
-    // Increase timeout for the element to be visible
-    cy.get('.common-info-body > :nth-child(1) > .select-group > div[_ngcontent-egy-c308=""] > .ng-select > .ng-select-container > .ng-arrow-wrapper', { timeout: 10000 })
-      .should('be.visible')
-      .click();
+    cy.get('.form-footer > :nth-child(2) > .btn').click()
+    // Interact with Business sector dropdown
+    cy.get('ng-select[formcontrolname="businessSector"]').scrollIntoView().should('be.visible').click();
+    cy.get('.ng-dropdown-panel .ng-option').contains('Engineering').click();
+
+    // Interact with Business sub sector dropdown
+    cy.get('ng-select[formcontrolname="businessSubSector"]').scrollIntoView().should('be.visible').click();
+    cy.get('.ng-dropdown-panel .ng-option').contains('Light Engineering').click();
+     // Interact with Business Type dropdown and select "New"
+     cy.get('ng-select[formcontrolname="businessType"]').scrollIntoView().should('be.visible').click();
+     cy.get('.ng-dropdown-panel .ng-option').contains('New').click();
+
+     // Interact with Business Status dropdown and select "Yes"
+     cy.get('ng-select[formcontrolname="businessStatus"]').scrollIntoView().should('be.visible').click();
+     cy.get('.ng-dropdown-panel .ng-option').contains('Yes').click();
+      // Interact with Business sector dropdown
+    cy.get('ng-select[formcontrolname="businessSector"]').scrollIntoView().should('be.visible').click();
+    cy.get('.ng-dropdown-panel .ng-option').contains('Engineering').click();
+     // Interact with Business sub sector dropdown
+     cy.get('ng-select[formcontrolname="businessSubSector"]').scrollIntoView().should('be.visible').click();
+     cy.get('.ng-dropdown-panel .ng-option').contains('Light Engineering').click();
+     // Interact with Business Source dropdown and select "A:Bancassurance"
+     cy.get('ng-select[formcontrolname="businessSource"]').scrollIntoView().should('be.visible').click();
+     cy.get('.ng-dropdown-panel .ng-option').contains('A : Bancassurance').click();
+
+     
+ // Select policy duration as "Full"
+ cy.get('ng-select[formcontrolname="policyDuration"]').scrollIntoView().should('be.visible').click({ force: true });
+ cy.get('.ng-dropdown-panel').should('be.visible').within(() => {
+     cy.get('.ng-option').contains('Full').click({ force: true });
+ });
+
+ // Select valid from date as 30th July 2024
+ cy.get('input[formcontrolname="validFrom"]').should('be.visible').clear().type('2024-07-30');
+     // Select banca bank as "BRAC Bank PLC"
+     cy.get('ng-select[formcontrolname="bancaBank"]').scrollIntoView().should('be.visible').click();
+     cy.get('.ng-dropdown-panel .ng-option').contains('BRAC Bank PLC').click();
+
+     // Select banca branch as "Agrabad Branch"
+     cy.get('ng-select[formcontrolname="bancaBranch"]').scrollIntoView().should('be.visible').click();
+     cy.get('.ng-dropdown-panel .ng-option').contains('Agrabad Branch').click();
+
+     // Type banca employee ID as "3344552211"
+     cy.get('input[formcontrolname="bancaEmployeeId"]').scrollIntoView().should('be.visible').type('3344552211');
+
+
   });
 });
     
