@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-07-29T05:07:42.786Z",
+    "end": "2024-07-29T05:08:01.090Z",
+    "duration": 18304,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "90f4da75-9d0f-45b8-81a6-e4027e51dd9e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Full Process.cy.js",
+      "file": "cypress\\e2e\\Full Process.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f252dbf3-f4dc-4955-9b5f-850088be903b",
+          "title": "GDIC CI Motor test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logs in and navigates through the motor insurance module",
+              "fullTitle": "GDIC CI Motor test Logs in and navigates through the motor insurance module",
+              "timedOut": null,
+              "duration": 18184,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Visit the login page\ncy.visit('https://cisqatest.green-delta.com/');\n// Perform login\ncy.get('.mb-5 > .input-group > .form-control').click().type('22222');\ncy.get(':nth-child(3) > .input-group > .form-control').click().type('UmmaHabiba1412');\ncy.get('#kt_login_signin_submit').click();\n// Wait for the page to load\ncy.get('.ng-select-container', {\n  timeout: 10000\n}).should('be.visible');\n// Open the dropdown menu\ncy.get('.ng-select-container').click();\n// Select \"AHO\" from the dropdown menu\ncy.get('.ng-option').contains('AHO').click();\n// Verify the branch selection\ncy.get('.ng-select-container').should('contain', 'AHO');\n// Navigate to the motor insurance module\ncy.get(':nth-child(3) > .menu-toggle > .menu-arrow').click();\ncy.get('.menu-item-open > .menu-submenu > .menu-subnav > :nth-child(4) > .menu-link > .menu-text').click();\n// cy.screenshot();\ncy.get('.card-toolbar > .btn').click();\ncy.get(':nth-child(1) > .sorting_1 > .checkbox > span').click();\ncy.get('.flex-between > [style=\"align-items: center;\"] > :nth-child(2) > .btn').click();\n// Interact with Business Type dropdown and select \"New\"\ncy.get('ng-select[formcontrolname=\"businessType\"]').should('be.visible').click();\ncy.get('.ng-dropdown-panel .ng-option').contains('New').click();\n// Interact with Business Status dropdown and select \"Yes\"\ncy.get('ng-select[formcontrolname=\"businessStatus\"]').should('be.visible').click();\ncy.get('.ng-dropdown-panel .ng-option').contains('Yes').click();\n// Interact with Business Source dropdown and select \"A:Bancassurance\"\ncy.get('ng-select[formcontrolname=\"businessSource\"]').should('be.visible').click();\ncy.get('.ng-dropdown-panel .ng-option').contains('A:Bancassurance').click();\n// Select policy duration as \"Full\"\ncy.get('ng-select[formcontrolname=\"policyDuration\"]').scrollIntoView().should('be.visible').click({\n  force: true\n});\ncy.get('.ng-dropdown-panel').should('be.visible').within(() => {\n  cy.get('.ng-option').contains('Full').click({\n    force: true\n  });\n});\n// Select valid from date as 30th July 2024\ncy.get('input[formcontrolname=\"validFrom\"]').should('be.visible').clear().type('2024-07-30');\n// Select banca bank as \"BRAC Bank PLC\"\ncy.get('ng-select[formcontrolname=\"bancaBank\"]').scrollIntoView().should('be.visible').click({\n  force: true\n});\ncy.get('.ng-dropdown-panel').should('be.visible').within(() => {\n  cy.get('.ng-option').contains('BRAC Bank PLC').click({\n    force: true\n  });\n});\n// Select banca branch as \"Agrabad Branch\"\ncy.get('ng-select[formcontrolname=\"bancaBranch\"]').scrollIntoView().should('be.visible').click({\n  force: true\n});\ncy.get('.ng-dropdown-panel').should('be.visible').within(() => {\n  cy.get('.ng-option').contains('Agrabad Branch').click({\n    force: true\n  });\n});\n// Type banca employee ID as \"3344552211\"\ncy.get('input[formcontrolname=\"bancaEmployeeId\"]').should('be.visible').type('3344552211');\n// Continue with the next steps in the process\ncy.get('.form-footer > :nth-child(2) > .btn').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'A:Bancassurance' within the element: <div#a423b6e071b4-6.ng-option> but never did.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'A:Bancassurance' within the element: <div#a423b6e071b4-6.ng-option> but never did.\n    at Context.eval (webpack://cypress-project/./cypress/e2e/Full Process.cy.js:43:46)",
+                "diff": null
+              },
+              "uuid": "38cbfbb2-e43d-49f5-aa91-f068deb15af8",
+              "parentUUID": "f252dbf3-f4dc-4955-9b5f-850088be903b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "38cbfbb2-e43d-49f5-aa91-f068deb15af8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 18184,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

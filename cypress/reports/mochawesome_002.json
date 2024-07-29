@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-07-29T05:07:15.534Z",
+    "end": "2024-07-29T05:07:40.760Z",
+    "duration": 25226,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "62922d6d-40e5-442c-ac73-419ec1e1dfc1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Check customer and add details.cy.js",
+      "file": "cypress\\e2e\\Check customer and add details.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "06569fc4-3ab2-43c0-a0e1-2e1899dba2a3",
+          "title": "check edit function if customer and continue",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logs in and navigates through the motor insurance module",
+              "fullTitle": "check edit function if customer and continue Logs in and navigates through the motor insurance module",
+              "timedOut": null,
+              "duration": 25130,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Visit the login page\ncy.visit('https://cisqatest.green-delta.com/');\n// Perform login\ncy.get('.mb-5 > .input-group > .form-control').click().type('22222');\ncy.get(':nth-child(3) > .input-group > .form-control').click().type('UmmaHabiba1412');\ncy.get('#kt_login_signin_submit').click();\n// Wait for the login to complete and the page to load\ncy.wait(2000); // Consider using a more reliable way to wait, such as waiting for an element to be visible\n// Open the dropdown menu\ncy.get('.ng-select-container').click();\n// Select \"AHO\" from the dropdown menu\ncy.get('.ng-option').contains('AHO').click();\n// Verify the branch selection\ncy.get('.ng-select-container').should('contain', 'AHO');\n// Navigate to the motor insurance module\ncy.get(':nth-child(3) > .menu-toggle > .menu-arrow').click();\ncy.get('.menu-item-open > .menu-submenu > .menu-subnav > :nth-child(4) > .menu-link > .menu-text').click();\n// cy.screenshot();\ncy.get('.card-toolbar > .btn').click();\ncy.get(':nth-child(1) > :nth-child(7) > :nth-child(1) > .d-inline-block > #dropdownBasic1').click();\ncy.get(':nth-child(1) > :nth-child(7) > :nth-child(1) > .d-inline-block > .dropdown-menu > .dropdown-item').click();\ncy.get(':nth-child(13) > .input-group > .form-control').type('Abdul Nasir');\ncy.get('.modal-footer > .btn-primary').click();\ncy.get('.confirm__modal__content > .btn');\ncy.get('.confirm__modal__content > .btn-primary').click();\n// Wait for the confirmation modal to appear\ncy.get('.confirm__modal__content').should('be.visible');\n// Click on the primary button to confirm\ncy.get('.confirm__modal__content > .btn-primary').click();\n// Optionally wait for any post-confirmation actions\ncy.wait(1000);\n// Verify the customer was added (adjust based on your application's behavior)\n// cy.get('.notification-message').should('contain', 'Customer added successfully');\ncy.get(':nth-child(1) > .sorting_1 > .checkbox > span').click();\ncy.get('.flex-between > [style=\"align-items: center;\"] > :nth-child(2) > .btn').click();\n// Ensure the business type dropdown is scrollable into view\ncy.get('ng-select[formcontrolname=\"businessType\"]').scrollIntoView().should('be.visible').click();\n// Wait for the dropdown options to be available\ncy.get('.ng-dropdown-panel .ng-option').should('be.visible');\n// Select business type as \"New\"\ncy.get('.ng-dropdown-panel .ng-option').contains('New').click();\n// Verify the selection\ncy.get('ng-select[formcontrolname=\"businessType\"] .ng-value-container').should('contain', 'New');",
+              "err": {},
+              "uuid": "e3ec83a2-fb85-4506-aa9d-62e14fc91975",
+              "parentUUID": "06569fc4-3ab2-43c0-a0e1-2e1899dba2a3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e3ec83a2-fb85-4506-aa9d-62e14fc91975"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 25130,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
