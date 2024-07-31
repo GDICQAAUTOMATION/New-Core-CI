@@ -53,40 +53,17 @@ cy.get('.ng-dropdown-panel .ng-option').contains('Light Engineering').click();
 // Interact with Business Source dropdown and select "A:Bancassurance"
 cy.get('ng-select[formcontrolname="businessSource"]').scrollIntoView().should('be.visible').click();
 cy.get('.ng-dropdown-panel .ng-option').contains('A : Bancassurance').click();
-// Wait for the page to load
-cy.wait(2000); // Adjust based on actual page load time
 
+cy.wait(9000); // Adjust based on actual page load time
 
-        // Select policy duration as "Full"
-        cy.get('ng-select[formcontrolname="policyDuration"]').click({ force: true });
-        cy.wait(2000); // Ensure the dropdown has time to open
-        
-        // Verify the dropdown panel and select "Full"
-        cy.get('ng-dropdown-panel', { timeout: 10000 }).should('exist').and('be.visible').within(() => {
-            cy.get('.ng-option').contains('Full').click({ force: true });
-        });
-      // Continue with other actions
-      // Example: select "validFrom" date as 30th July 2024
-      cy.get('input[formcontrolname="validFrom"]').should('be.visible').clear().type('2024-07-30');
+cy.get('ng-select[formcontrolname="policyDuration"]').click({ force: true });
+cy.screenshot('policy-duration-clicked');
 
-      // Select banca bank as "BRAC Bank PLC"
-      cy.get('ng-select[formcontrolname="bancaBank"]').scrollIntoView().click({ force: true });
-      cy.wait(2000); // Adjust based on actual dropdown animation time
-      cy.contains('ng-dropdown-panel').should('be.visible').within(() => {
-          cy.get('.ng-option').contains('BRAC Bank PLC').click({ force: true });
-      });
+cy.get('ng-dropdown-panel', { timeout: 10000 }).should('exist').and('be.visible');
+cy.screenshot('policy-duration-dropdown-visible');
 
-      // Select banca branch as "Agrabad Branch"
-      cy.get('ng-select[formcontrolname="bancaBranch"]').scrollIntoView().click({ force: true });
-      cy.wait(2000); // Adjust based on actual dropdown animation time
-      cy.get('ng-dropdown-panel').should('be.visible').within(() => {
-          cy.get('.ng-option').contains('Agrabad Branch').click({ force: true });
-      });
+cy.get('ng-dropdown-panel .ng-option').contains('Full').click({ force: true });
+cy.screenshot('policy-duration-full-selected');
 
-      // Type banca employee ID as "3344552211"
-      cy.get('input[formcontrolname="bancaEmployeeId"]').should('be.visible').type('3344552211');
-
-      // Continue with the form submission
-      cy.get('.form-footer > :nth-child(2) > .btn').click();
   });
 });

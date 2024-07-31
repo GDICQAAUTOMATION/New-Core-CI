@@ -38,7 +38,7 @@ describe('GDIC CI Motor test', () => {
     cy.get('ng-select[formcontrolname="customerType"]').click();
     //cy.screenshot()
 
-    // Wait for the dropdown options to be visible and select "BUSINESS"
+    // Wait for the dropdown options to be visible and select "personal"
     cy.get('.ng-dropdown-panel .ng-option').contains('PERSONAL').click({ force: true });
 
     // Verify the selection
@@ -47,12 +47,13 @@ describe('GDIC CI Motor test', () => {
 
 
     // Fill in the customer form fields (adjust selectors and inputs as necessary)
-    cy.get('form.ng-untouched > #required-fields > :nth-child(2) > .input-group > .form-control').type('Test Business Customer');
-    cy.get('form.ng-untouched > #required-fields > :nth-child(3) > .input-group > .form-control').type('123 Test Street, Test City');
-    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(5) > .input-group > .form-control').type('01478647895');
-    cy.get(':nth-child(17) > .customer__edit__modal > .modal-content > app-add-customer-modal > .modal__control > .modal-body > .ng-invalid.ng-touched > #required-fields > :nth-child(16) > .input-group > .form-control').type('test@example.com');
-    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(8)').type('Munshigange')
-    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(9) > .input-group > .form-control').type('9562139048')
+    cy.get('form.ng-untouched > #required-fields > :nth-child(2) > .input-group > .form-control').type('Shahidul ');
+    cy.get('form.ng-untouched > #required-fields > :nth-child(3) > .input-group > .form-control').type('Parvez');
+    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(5) > .input-group > .form-control').type('01918677835');
+    cy.get(':nth-child(17) > .customer__edit__modal > .modal-content > app-add-customer-modal > .modal__control > .modal-body > .ng-invalid.ng-touched > #required-fields > :nth-child(16) > .input-group > .form-control').type('shahid1@example.com');
+    cy.get('form.ng-dirty > #required-fields > :nth-child(7) > .input-group > .form-control').type('East Shewrapara')
+    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(8)').type('Mymenshingh')
+    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(9) > .input-group > .form-control').type('9532439048')
 
 
     // Save the customer
