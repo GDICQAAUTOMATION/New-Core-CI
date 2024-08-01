@@ -47,13 +47,13 @@ describe('GDIC CI Motor test', () => {
 
 
     // Fill in the customer form fields (adjust selectors and inputs as necessary)
-    cy.get('form.ng-untouched > #required-fields > :nth-child(2) > .input-group > .form-control').type('Shahidul ');
-    cy.get('form.ng-untouched > #required-fields > :nth-child(3) > .input-group > .form-control').type('Parvez');
-    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(5) > .input-group > .form-control').type('01918677835');
-    cy.get(':nth-child(17) > .customer__edit__modal > .modal-content > app-add-customer-modal > .modal__control > .modal-body > .ng-invalid.ng-touched > #required-fields > :nth-child(16) > .input-group > .form-control').type('shahid1@example.com');
-    cy.get('form.ng-dirty > #required-fields > :nth-child(7) > .input-group > .form-control').type('East Shewrapara')
-    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(8)').type('Mymenshingh')
-    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(9) > .input-group > .form-control').type('9532439048')
+    cy.get('form.ng-untouched > #required-fields > :nth-child(2) > .input-group > .form-control').type('Tamanna Islam ');
+    cy.get('form.ng-untouched > #required-fields > :nth-child(3) > .input-group > .form-control').type('Jhumur');
+    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(5) > .input-group > .form-control').type('01538677835');
+    cy.get(':nth-child(17) > .customer__edit__modal > .modal-content > app-add-customer-modal > .modal__control > .modal-body > .ng-invalid.ng-touched > #required-fields > :nth-child(16) > .input-group > .form-control').type('tamanna123@example.com');
+    cy.get('form.ng-dirty > #required-fields > :nth-child(7) > .input-group > .form-control').type('Dhaka-1216')
+    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(8)').type('Komilla')
+    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(9) > .input-group > .form-control').type('9112131048')
 
 
     // Save the customer
