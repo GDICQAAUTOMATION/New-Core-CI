@@ -5,7 +5,7 @@ describe('GDIC CI Motor test', () => {
       // Visit the login page
       cy.visit('https://cisqatest.green-delta.com/');
 
-      // Perform login
+      // Perform login working
       cy.get('.mb-5 > .input-group > .form-control').click().type('22222');
       cy.get(':nth-child(3) > .input-group > .form-control').click().type('UmmaHabiba1412');
       cy.get('#kt_login_signin_submit').click();
