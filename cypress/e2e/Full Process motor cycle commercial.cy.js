@@ -7,7 +7,7 @@ describe('GDIC CI Motor test', () => {
 
       // Perform login
       cy.get('.mb-5 > .input-group > .form-control').click().type('22222');
-      cy.get(':nth-child(3) > .input-group > .form-control').click().type('APURNAKHAN1412');
+      cy.get(':nth-child(3) > .input-group > .form-control').click().type('');
       cy.get('#kt_login_signin_submit').click();
 
       // Wait for the page to load
