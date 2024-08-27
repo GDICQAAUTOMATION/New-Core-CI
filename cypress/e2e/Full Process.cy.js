@@ -7,7 +7,7 @@ describe('GDIC CI Motor test', () => {
 
       // Perform login
       cy.get('.mb-5 > .input-group > .form-control').click().type('22222');
-      cy.get(':nth-child(3) > .input-group > .form-control').click().type('UmmaHabiba1412');
+      cy.get(':nth-child(3) > .input-group > .form-control').click().type('APURNAKHAN1412');
       cy.get('#kt_login_signin_submit').click();
 
       // Wait for the page to load
@@ -68,13 +68,8 @@ describe('GDIC CI Motor test', () => {
       cy.get('ng-select[formcontrolname="businessType"]').scrollIntoView().should('be.visible').click();
       cy.get('.ng-dropdown-panel .ng-option').contains('New').click();
       cy.get('.form-footer > :nth-child(2) > .btn').click({force:true})
-      //-----------------------------------Customer Common Info page done--------------------------
-
-
-      
-  ////------------------------------------------Prod Base Info for motorcycle-------------------------------    
    
- // Open Prod Code the dropdown
+ // Open the product code dropdown
 cy.get('ng-select[formcontrolname="productCode"]', { timeout: 10000 })
 .should('be.visible')
 .click();  // Open the dropdown
@@ -248,7 +243,49 @@ cy.get('.flex.mt-10 > :nth-child(2) > .select-group > .ng-select > .ng-select-co
 
   //get quotation
   cy.get('.mt-5 > .btn-secondary').click() 
- //------------------------------------------Prod Base Info complete for motorcycle-------------------------------
- 
+  cy.screenshot()
+ //submission 
+  cy.get('.btn-primary').click()
+
+  //Clauses I Mort Bank
+  cy.get(':nth-child(1) > .checkbox-list > .checkbox > span').click()
+  //ADD CLAUSES ENTRY
+  cy.get('.mr-10 > .ng-select > .ng-select-container > .ng-value-container > .ng-input > input').type('2001{enter}')
+   //add clause
+   cy.get('.ng-star-inserted > .btn').click()  
+   
+   //Submit form (add clause)
+   cy.get('.form-footer > :nth-child(2) > .btn').click()
+   cy.screenshot('Preview')
+// going back option checking
+   cy.get('.form-footer > :nth-child(1) > .btn').click()
+   //again back option for going prod based info
+   cy.get('.mr-5 > .btn').click()
+// modify risk then see calculation(add a risk)
+cy.get(':nth-child(3) > .border > .flex > :nth-child(1) > .checkbox-list > .checkbox > span').click()
+cy.get('.btn-primary').click()
+cy.wait(2000)
+//get new quotation
+cy.get('.mt-5 > .btn-secondary').click()
+
+//final preview
+cy.get('.mt-5 > .btn-secondary').click()
+
+//add screenshot
+
+cy.screenshot('Riot strike added preview')
+cy.wait(1000)
+//go next to add clauses page
+cy.get('.btn-primary').click()
+cy.wait(3000)
+cy.get('.form-footer > :nth-child(2) > .btn').click()
+//preview page 
+cy.get('.form-footer > :nth-child(2) > .btn').click()
+
+
+//are you sure? as yes selection
+cy.get('.confirm__modal__content > .btn-primary').click()
+cy.screenshot('submitted')
+
   });
 });
