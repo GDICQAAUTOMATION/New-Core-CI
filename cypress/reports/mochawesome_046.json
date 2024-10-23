@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-10-20T08:25:31.386Z",
+    "end": "2024-10-20T08:25:59.002Z",
+    "duration": 27616,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "df9796c6-db21-4a33-9e9c-0ea7cb3e7d7a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\private car_commercial.cy.js",
+      "file": "cypress\\e2e\\private car_commercial.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4f4737be-f018-4b23-ba41-3eb2ecea6e50",
+          "title": "GDIC CI Motor test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logs in and navigates through the motor insurance module",
+              "fullTitle": "GDIC CI Motor test Logs in and navigates through the motor insurance module",
+              "timedOut": null,
+              "duration": 27486,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Visit the login page\n// Set Viewport\ncy.viewport(1280, 720);\n// Visit the login page\ncy.visit('https://cisqatest.green-delta.com/');\n// Perform login\ncy.get('.mb-5 > .input-group > .form-control').click().type('22222');\ncy.get(':nth-child(3) > .input-group > .form-control').click().type('APURNAKHAN1412');\ncy.get('#kt_login_signin_submit').click();\n// Wait for the page to load\ncy.wait(2000);\n// Open the dropdown menu and select \"AHO\"\ncy.get('.ng-select-container').click();\ncy.get('.ng-option').contains('AHO').click();\ncy.get('.ng-select-container').should('contain', 'AHO');\n// Navigate to the motor insurance module\ncy.get(':nth-child(3) > .menu-toggle > .menu-arrow').click();\ncy.get('.menu-item-open > .menu-submenu > .menu-subnav > :nth-child(4) > .menu-link > .menu-text').click();\ncy.get('.card-toolbar > .btn').click();\ncy.get(':nth-child(1) > .sorting_1 > .checkbox > span').click();\ncy.get('.flex-between > [style=\"align-items: center;\"] > :nth-child(2) > .btn').click();\ncy.get('.form-footer > :nth-child(2) > .btn').click();\ncy.get('ng-select[formcontrolname=\"businessType\"]').scrollIntoView().should('be.visible').click();\ncy.get('.ng-dropdown-panel .ng-option').contains('New').click();\ncy.get('ng-select[formcontrolname=\"businessStatus\"]').scrollIntoView().should('be.visible').click();\ncy.get('.ng-dropdown-panel .ng-option').contains('Yes').click();\ncy.get('ng-select[formcontrolname=\"businessSource\"]').scrollIntoView().should('be.visible').click();\ncy.get('.ng-dropdown-panel .ng-option').contains('D : Digital (For Digital Dept.)').click();\ncy.wait(2000);\ncy.get('[formControlName=\"policyDuration\"]').click();\ncy.wait(2000);\ncy.contains(\"Full\").click();\n// Interact with \"validFrom\" date input\ncy.get(':nth-child(4) > .select-group > .form-control').scrollIntoView().should('be.visible').click();\ncy.get(':nth-child(5) > :nth-child(7) > .ng-star-inserted').click();\n// Open the \"Other Contact Number\" dropdown\ncy.get('.ng-select[formcontrolname=\"contactNumberId\"]').scrollIntoView().should('be.visible').click({\n  force: true\n});\ncy.wait(5000); // Wait for dropdown options to load\n// Interact with dropdowns\ncy.get('ng-select[formcontrolname=\"businessSector\"]').scrollIntoView().should('be.visible').click();\ncy.get('.ng-dropdown-panel .ng-option').contains('Engineering').click();\ncy.get('ng-select[formcontrolname=\"businessSubSector\"]').scrollIntoView().should('be.visible').click();\ncy.get('.ng-dropdown-panel .ng-option').contains('Light Engineering').click();\ncy.get('div[role=\"combobox\"][aria-haspopup=\"listbox\"]').find('input[aria-autocomplete=\"list\"]').last().should('be.visible').type('01923423233');\ncy.wait(2000);\ncy.contains('01923423233').click();\ncy.get('ng-select[formcontrolname=\"businessType\"]').scrollIntoView().should('be.visible').click();\ncy.get('.ng-dropdown-panel .ng-option').contains('New').click();\ncy.get('.form-footer > :nth-child(2) > .btn').click({\n  force: true\n});\n// Open the product code dropdown\ncy.get('ng-select[formcontrolname=\"productCode\"]', {\n  timeout: 10000\n}).should('be.visible').click(); // Open the dropdown\n// Wait for and select the option\ncy.get('ng-dropdown-panel', {\n  timeout: 10000\n}).should('be.visible').find('.ng-option').contains('MTR', {\n  matchCase: true\n}).click(); // Click on the option\n// Verify the selected value\ncy.get('ng-select[formcontrolname=\"productCode\"]').should('contain.text', 'MTR'); // Verify the selection\n// Select Document Type as \"Certificate\"\ncy.get('ng-select[formcontrolname=\"documentType\"]').scrollIntoView().should('be.visible').click();\n// Wait for the dropdown options to load and select \"Certificate\"\ncy.get('.ng-dropdown-panel .ng-option', {\n  timeout: 10000\n}).should('be.visible');\ncy.get('.ng-dropdown-panel .ng-option').contains('Certificate').click();\n// Wait for the selection to be applied\ncy.wait(2000);\n// Select Currency Type as \"BDT\"\ncy.log('Attempting to select BDT in Currency Type');\ncy.get('ng-select[formcontrolname=\"currencyType\"]').scrollIntoView().should('be.visible').click();\n// Wait for the dropdown options to load\ncy.get('.ng-dropdown-panel .ng-option', {\n  timeout: 10000\n}).should('be.visible');\n// Select \"BDT\" from the dropdown options\ncy.get('.ng-dropdown-panel .ng-option').contains('BDT').click({\n  force: true\n});\n// Verify the BDT selection\ncy.get('ng-select[formcontrolname=\"currencyType\"]').should('contain', 'BDT', {\n  timeout: 10000\n});\n// Select Plan Type as \"Comprehensive\"\ncy.log('Attempting to select Comprehensive in Plan Type');\ncy.get('ng-select[formcontrolname=\"mtrPlanName\"]').scrollIntoView().should('be.visible').click();\n// Wait for the dropdown options to load\ncy.get('.ng-dropdown-panel .ng-option', {\n  timeout: 10000\n}).should('be.visible');\n// Ensure we select the exact \"Comprehensive\" and not any variant\ncy.get('.ng-dropdown-panel .ng-option').each(($el, index, $list) => {\n  const optionText = $el.text().trim();\n  cy.log(`Plan Type option ${index}: ${optionText}`);\n  if (optionText === 'Comprehensive') {\n    cy.wrap($el).scrollIntoView().click({\n      force: true\n    });\n    cy.log('Comprehensive option found and clicked!');\n  }\n});\n// Verify the Comprehensive selection\ncy.get('ng-select[formcontrolname=\"mtrPlanName\"]').should('contain', 'Comprehensive', {\n  timeout: 10000\n});\n// Select Vehicle Name as \"Private Car\"\ncy.log('Attempting to select Private Car in Vehicle Name');\ncy.get('ng-select[formcontrolname=\"mtrVehicleName\"]').scrollIntoView().should('be.visible').click();\n// Wait for the dropdown options to load\ncy.get('.ng-dropdown-panel .ng-option', {\n  timeout: 10000\n}).should('be.visible');\n// Ensure we select the exact \"Private Car\" option\ncy.get('.ng-dropdown-panel .ng-option').each(($el, index, $list) => {\n  const optionText = $el.text().trim();\n  cy.log(`Vehicle Name option ${index}: ${optionText}`);\n  if (optionText === 'Private Car') {\n    cy.wrap($el).scrollIntoView().click({\n      force: true\n    });\n    cy.log('Private Car found and clicked!');\n  }\n});\n// Verify the Private Care selection\ncy.get('ng-select[formcontrolname=\"mtrVehicleName\"]').should('contain', 'Private Car', {\n  timeout: 10000\n});\n//Vehicle Registration Number\ncy.get(':nth-child(2) > :nth-child(2) > :nth-child(2) > .input-group > .form-control').type('Kha-3421');\n//Vehicle engine and chesis number\n// Enter Vehicle Engine and Chassis Number\ncy.log('Entering Vehicle Engine and Chassis Number');\ncy.get('input[formcontrolname=\"motorEngineAndChassisNumber\"]').scrollIntoView().should('be.visible').type('1HGCM82633A004352', {\n  force: true\n});\n// Verify that the input contains the correct value\ncy.get('input[formcontrolname=\"motorEngineAndChassisNumber\"]').should('have.value', '1HGCM82633A004352', {\n  timeout: 10000\n});\n//Vehicle make type and body\ncy.get(':nth-child(2) > :nth-child(2) > :nth-child(4) > .input-group > .form-control').type(' HIACE TOYOTA');\n//Manufacturer year\ncy.get(':nth-child(2) > :nth-child(2) > :nth-child(5) > .input-group > .form-control').type('2017');\n// Select \"TON\" from the dropdown for Motor CC / Ton / Seat\ncy.log('Selecting Motor CC / Ton / Seat as CC');\n// Open the dropdown if it's not already open\ncy.get('ng-select[formcontrolname=\"mtrCcTon\"]').scrollIntoView().should('be.visible').click(); // Open the dropdown\n// Select \"CC\" from the dropdown options\ncy.get('ng-dropdown-panel').find('.ng-option').contains('TON') // Find the option with text \"ton\"\n.click(); // Click on the option\n// Verify the selected value\ncy.get('ng-select[formcontrolname=\"mtrCcTon\"]').should('contain', 'TON');\n//Ton value\ncy.get(':nth-child(12) > .input-group > .form-control').type('5');\n// Open the dropdown if it's not already open\ncy.get('ng-select[formcontrolname=\"motorTermsOfUseId\"]').scrollIntoView().should('be.visible').click(); // Open the dropdown\n// Wait for the dropdown panel to have items\ncy.get('ng-dropdown-panel').should('exist').find('.ng-option').should('have.length.greaterThan', 0) // Ensure there are items\n.contains('USE ONLY FOR SOCIAL PURPOSE AND IN CONNECTION WITH THE INSUREDS BUSINESS -- 1233').click(); // Click on the option\n// Open the dropdown if it's not already open\ncy.get('ng-select[formcontrolname=\"mtrVehicleType\"]') // Adjust the formcontrolname or selector as needed\n.click(); // Open the dropdown\n// Select the \"Commercial\" option\ncy.get('ng-dropdown-panel').find('.ng-option').contains('Commercial').click(); // Click on the option\n// Verify that the option is selected\ncy.get('ng-select[formcontrolname=\"mtrVehicleType\"]').should('contain.text', 'Commercial');\n//Seat Capacity\ncy.get(':nth-child(15) > .input-group > .form-control').type('2');\n//Passenger Info\ncy.get(':nth-child(2) > .mt-10 > :nth-child(2) > :nth-child(2) > .input-group > .form-control').type('1');\n//Driver info\ncy.get(':nth-child(3) > :nth-child(2) > .input-group > .form-control').type('1');\n//Gross premium selection\ncy.get(':nth-child(2) > .border > .flex > :nth-child(1) > .checkbox-list > .checkbox > span').click();\ncy.get(':nth-child(2) > .border > .flex > :nth-child(2) > .checkbox-list > .checkbox > span').click();\ncy.get(':nth-child(2) > .border > .flex > :nth-child(3) > .checkbox-list > .checkbox > span').click();\n//Comprehensive risk exclusion\ncy.get(':nth-child(3) > .border > .flex > :nth-child(1) > .checkbox-list > .checkbox > span').click();\ncy.get(':nth-child(3) > .border > .flex > :nth-child(2) > .checkbox-list > .checkbox > span').click();\n//Sum insured value\ncy.get(':nth-child(16) > .input-group > .form-control').type('200000');\n//MTR\ncy.get('.flex.mt-10 > :nth-child(2) > .select-group > .ng-select > .ng-select-container > .ng-value-container > .ng-input > input').type('{enter}');\n//get quotation\ncy.get('.mt-5 > .btn-secondary').click();\ncy.screenshot('1st Quotation Private Car');\n//submission  of second page\ncy.get('.btn-primary').click();\n//Clauses I Mort Bank\n//Clauses I Mort Bank\ncy.get('.mr-10 > .ng-select > .ng-select-container > .ng-value-container > .ng-input > input', {\n  timeout: 10000\n}).should('exist').should('be.visible').type('2001{enter}');\n//add clause\ncy.get('.ng-star-inserted > .btn').click();\n//Submit form (add clause)\ncy.get('.form-footer > :nth-child(2) > .btn').click();\ncy.screenshot('Preview_Private Car');\n// going back option checking\ncy.get('.form-footer > :nth-child(1) > .btn').click();\n//again back option for going prod based info\ncy.get('.mr-5 > .btn').click();\n// modify risk then see calculation(add a risk)\ncy.get(':nth-child(3) > .border > .flex > :nth-child(1) > .checkbox-list > .checkbox > span').click();\ncy.get('.btn-primary').click();\ncy.wait(2000);\n//get new quotation\ncy.get('.mt-5 > .btn-secondary').click();\n//final preview\ncy.get('.mt-5 > .btn-secondary').click();\n//add screenshot\ncy.screenshot('Riot strike added preview_Private Car');\ncy.wait(1000);\n//go next to add clauses page\ncy.get('.btn-primary').click();\ncy.wait(3000);\ncy.get('.form-footer > :nth-child(2) > .btn').click();\n//preview page \ncy.get('.form-footer > :nth-child(2) > .btn').click();\n//are you sure? as yes selection\ncy.get('.confirm__modal__content > .btn-primary').click();\ncy.screenshot('submitted_Private Car');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find content: '01923423233' but never did.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find content: '01923423233' but never did.\n    at Context.eval (webpack://cypress-project/./cypress/e2e/private car_commercial.cy.js:70:3)",
+                "diff": null
+              },
+              "uuid": "7b7baff1-c625-48cd-8676-f7d1844aa802",
+              "parentUUID": "4f4737be-f018-4b23-ba41-3eb2ecea6e50",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "7b7baff1-c625-48cd-8676-f7d1844aa802"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 27486,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

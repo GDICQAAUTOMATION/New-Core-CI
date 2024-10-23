@@ -7,7 +7,7 @@ describe('GDIC CI Motor test', () => {
 
     // Perform login
     cy.get('.mb-5 > .input-group > .form-control').click().type('22222');
-    cy.get(':nth-child(3) > .input-group > .form-control').click().type('UmmaHabiba1412');
+    cy.get(':nth-child(3) > .input-group > .form-control').click().type('APURNAKHAN1412');
     cy.get('#kt_login_signin_submit').click();
 
     // Wait for the login to complete and the page to load
@@ -26,7 +26,7 @@ describe('GDIC CI Motor test', () => {
     cy.get(':nth-child(3) > .menu-toggle > .menu-arrow').click();
     cy.get('.menu-item-open > .menu-submenu > .menu-subnav > :nth-child(4) > .menu-link > .menu-text').click();
    // cy.screenshot();
-
+  
     // Click on the buttons to proceed
     cy.get('.card-toolbar > .btn').click();
     cy.get('[style="align-items: center;"] > .btn').click();
@@ -49,11 +49,14 @@ describe('GDIC CI Motor test', () => {
     // Fill in the customer form fields (adjust selectors and inputs as necessary)
     cy.get('form.ng-untouched > #required-fields > :nth-child(2) > .input-group > .form-control').type('Tamanna Islam ');
     cy.get('form.ng-untouched > #required-fields > :nth-child(3) > .input-group > .form-control').type('Jhumur');
-    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(5) > .input-group > .form-control').type('01538677835');
+    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(5) > .input-group > .form-control').type('01538670000');
     cy.get(':nth-child(17) > .customer__edit__modal > .modal-content > app-add-customer-modal > .modal__control > .modal-body > .ng-invalid.ng-touched > #required-fields > :nth-child(16) > .input-group > .form-control').type('tamanna123@example.com');
     cy.get('form.ng-dirty > #required-fields > :nth-child(7) > .input-group > .form-control').type('Dhaka-1216')
     cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(8)').type('Komilla')
-    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(9) > .input-group > .form-control').type('9112131048')
+    cy.get('.ng-invalid.ng-dirty > #required-fields > :nth-child(9) > .input-group > .form-control').type('9102100048')
+     // gender
+   cy.get('form.ng-dirty > #required-fields > :nth-child(6) > .select-group > .ng-select > .ng-select-container > .ng-value-container > .ng-input').click()
+   cy.get('.ng-option').contains('Female').click();
 
 
     // Save the customer

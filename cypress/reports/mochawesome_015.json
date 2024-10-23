@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-10-16T06:10:44.426Z",
+    "end": "2024-10-16T06:11:16.408Z",
+    "duration": 31982,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "901d162f-b693-4294-91d9-ef6c2a56dfa6",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Bus_commercial.cy.js",
+      "file": "cypress\\e2e\\Bus_commercial.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ef230837-9ae0-4a8c-bd1e-052bf9395e1d",
+          "title": "GDIC CI Motor test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logs in and navigates through the motor insurance module",
+              "fullTitle": "GDIC CI Motor test Logs in and navigates through the motor insurance module",
+              "timedOut": null,
+              "duration": 31850,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Set Viewport\ncy.viewport(1280, 720);\ncy.selectDropdown('.ng-select-container', 'AHO');\ncy.navigateToMotorInsuranceModule();\ncy.fillMotorInsuranceForm({\n  businessType: 'New',\n  businessStatus: 'Yes',\n  businessSource: 'D : Digital (For Digital Dept.)',\n  policyDuration: 'Full',\n  validFrom: '2023-08-05',\n  businessSector: 'Engineering',\n  businessSubSector: 'Light Engineering',\n  contactNumber: '01877678976',\n  documentType: 'Certificate',\n  currencyType: 'BDT',\n  planType: 'Comprehensive',\n  vehicleName: 'Motor Cycle',\n  vehicleRegistrationNumber: 'Kha-3421',\n  engineAndChassisNumber: '1HGCM82633A004352',\n  vehicleMakeTypeAndBody: 'two wheeler is Bajaj Dominar 400',\n  manufacturerYear: '2022',\n  motorCcTon: 'CC',\n  motorCcValue: '270',\n  motorTermsOfUse: 'USE ONLY FOR SOCIAL PURPOSE AND IN CONNECTION WITH THE INSUREDS BUSINESS -- 1233',\n  motorVehicleType: 'Commercial',\n  seatCapacity: '2',\n  passengerInfo: '1',\n  driverInfo: '1',\n  sumInsured: '200000'\n});\ncy.getQuotation();\ncy.addClause('2001');\ncy.submitForm();\ncy.modifyRiskAndRecalculate();\ncy.submitForm(); // Use submitForm consistently",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find content: '01877678976' but never did.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find content: '01877678976' but never did.\n    at Context.eval (webpack://cypress-project/./cypress/e2e/Bus_commercial.cy.js:113:7)",
+                "diff": null
+              },
+              "uuid": "097d74d8-f693-44b5-93dc-173f0eda0dc3",
+              "parentUUID": "ef230837-9ae0-4a8c-bd1e-052bf9395e1d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "097d74d8-f693-44b5-93dc-173f0eda0dc3"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 31850,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

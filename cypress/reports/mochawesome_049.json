@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-10-21T04:22:43.886Z",
+    "end": "2024-10-21T04:23:01.588Z",
+    "duration": 17702,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "08da2b0f-3668-41f4-bb74-5ce809bc4f58",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Check customer and add details.cy.js",
+      "file": "cypress\\e2e\\Check customer and add details.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2c04da6a-8d37-44a6-b546-5bb5aefbef40",
+          "title": "Check edit function for customer and continue",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logs in and navigates through the motor insurance module",
+              "fullTitle": "Check edit function for customer and continue Logs in and navigates through the motor insurance module",
+              "timedOut": null,
+              "duration": 17614,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Set the viewport size for consistent UI behavior\ncy.viewport(1280, 720);\n// Visit the login page\ncy.visit('https://cisqatest.green-delta.com/');\n// Perform login by entering the username and password, then clicking submit\ncy.get('.mb-5 > .input-group > .form-control').click().type('22222');\ncy.get(':nth-child(3) > .input-group > .form-control').click().type('APURNAKHAN1412');\ncy.get('#kt_login_signin_submit').click();\n// Wait for the page to fully load before proceeding\ncy.wait(2000);\n// Open the branch selection dropdown and select \"AHO\"\ncy.get('.ng-select-container').click();\ncy.get('.ng-option').contains('AHO').click();\n// Verify that \"AHO\" is selected in the dropdown\ncy.get('.ng-select-container').should('contain', 'AHO');\n// Navigate to the motor insurance module via the sidebar menu\ncy.get(':nth-child(3) > .menu-toggle > .menu-arrow').click(); // Click to open the menu\ncy.get('.menu-item-open > .menu-submenu > .menu-subnav > :nth-child(4) > .menu-link > .menu-text').click();\n// Click the button to add a new entry or customer\ncy.get('.card-toolbar > .btn').click();\n// Click the dropdown button in the first row of entries\ncy.get(':nth-child(1) > :nth-child(7) > :nth-child(1) > .d-inline-block > #dropdownBasic1').click();\n// Click on the \"Edit\" option from the dropdown menu\ncy.get(':nth-child(1) > :nth-child(7) > :nth-child(1) > .d-inline-block > .dropdown-menu > .dropdown-item').click();\n// Type in the new name for the customer in the input field\ncy.get(':nth-child(13) > .input-group > .form-control').type('Abdul Nasir');\n// Click the \"Save\" button in the modal\ncy.get('.modal-footer > .btn-primary').click();\n// Ensure that the confirmation modal appears and click \"Confirm\"\ncy.get('.confirm__modal__content').should('be.visible');\ncy.get('.confirm__modal__content > .btn-primary').click();\n// Optionally, wait for any post-confirmation actions to complete\ncy.wait(1000);\n// Verify that the customer was edited successfully (you might need to adjust this based on your application's feedback)\n// Example: cy.get('.notification-message').should('contain', 'Customer updated successfully');\ncy.get('.confirm__modal__content > .btn').click();\n// Select the newly edited customer using the checkbox in the list\ncy.get(':nth-child(1) > .sorting_1 > .checkbox > span').click();\n// Click the \"Continue\" button to proceed with the selected customer\ncy.get('.flex-between > [style=\"align-items: center;\"] > :nth-child(2) > .btn').click();\n// Ensure that the business type dropdown is visible before interacting\ncy.get('ng-select[formcontrolname=\"businessType\"]').click();\n// Wait for the dropdown options to be loaded and visible\ncy.get('.ng-dropdown-panel .ng-option').should('be.visible');\n// Select \"New\" from the business type dropdown\n// Select business type as \"New\"\ncy.get('.ng-dropdown-panel .ng-option').contains('New').click();\n// Verify that \"New\" is selected in the business type dropdown\ncy.get('ng-select[formcontrolname=\"businessType\"] .ng-value-container').should('contain', 'New');\ncy.get('.form-footer > :nth-child(2) > .btn').click();",
+              "err": {},
+              "uuid": "78cfabf4-d439-44b0-a0db-47571fcaa648",
+              "parentUUID": "2c04da6a-8d37-44a6-b546-5bb5aefbef40",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "78cfabf4-d439-44b0-a0db-47571fcaa648"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17614,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -11,7 +11,7 @@ describe('GDIC CI Motor test', () => {
 
     // Perform login
     cy.get('.mb-5 > .input-group > .form-control').click().type('22222');
-    cy.get(':nth-child(3) > .input-group > .form-control').click().type('');
+    cy.get(':nth-child(3) > .input-group > .form-control').click().type('APURNAKHAN1412');
     cy.get('#kt_login_signin_submit').click();
 
     // Wait for the page to load
@@ -25,7 +25,8 @@ describe('GDIC CI Motor test', () => {
     // Navigate to the motor insurance module
     cy.get(':nth-child(3) > .menu-toggle > .menu-arrow').click();
     cy.get('.menu-item-open > .menu-submenu > .menu-subnav > :nth-child(4) > .menu-link > .menu-text').click();
-    cy.get('.card-toolbar > .btn').click();
+    cy.wait(2000)
+    cy.get('.card-toolbar > .btn').click()
     cy.get(':nth-child(1) > .sorting_1 > .checkbox > span').click();
     cy.get('.flex-between > [style="align-items: center;"] > :nth-child(2) > .btn').click();
     cy.get('.form-footer > :nth-child(2) > .btn').click();
@@ -40,7 +41,7 @@ describe('GDIC CI Motor test', () => {
     cy.get('.ng-dropdown-panel .ng-option').contains('D : Digital (For Digital Dept.)').click();
 
     cy.wait(2000);
-
+//Selecting policy duration
     cy.get('[formControlName="policyDuration"]').click();
     cy.wait(2000);
     cy.contains("Full").click();
@@ -48,7 +49,8 @@ describe('GDIC CI Motor test', () => {
 
     // Interact with "validFrom" date input
     cy.get(':nth-child(4) > .select-group > .form-control').scrollIntoView().should('be.visible').click();
-    cy.get(':nth-child(5) > :nth-child(7) > .ng-star-inserted').click();
+    cy.get(':nth-child(5) > :nth-child(3) > .ng-star-inserted').click();
+    
 
     // Open the "Other Contact Number" dropdown
     cy.get('.ng-select[formcontrolname="contactNumberId"]').scrollIntoView().should('be.visible').click({ force: true });
@@ -65,9 +67,14 @@ describe('GDIC CI Motor test', () => {
       .find('input[aria-autocomplete="list"]')
       .last()
       .should('be.visible')
-      .type('01923423233');
+      .type('01877678976');
     cy.wait(2000)
-    cy.contains('01923423233').click();
+    cy.contains('01877678976').click();
+    
+    // Interact with "validFrom" date input
+    cy.get(':nth-child(4) > .select-group > .form-control').scrollIntoView().should('be.visible').click();
+    cy.get(':nth-child(5) > :nth-child(3) > .ng-star-inserted').click();
+    cy.get('.form-footer > :nth-child(2) > .btn').click()
 
     cy.get('ng-select[formcontrolname="businessType"]').scrollIntoView().should('be.visible').click();
     cy.get('.ng-dropdown-panel .ng-option').contains('New').click();

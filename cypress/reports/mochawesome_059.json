@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-10-22T04:06:07.707Z",
+    "end": "2024-10-22T04:06:38.609Z",
+    "duration": 30902,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "50ab93df-bc16-4e77-bc74-5288083e823e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Bus_commercial.cy.js",
+      "file": "cypress\\e2e\\Bus_commercial.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4168365e-bb7c-4292-8fa9-8c84d3b09b1b",
+          "title": "GDIC CI Motor test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logs in and navigates through the motor insurance module",
+              "fullTitle": "GDIC CI Motor test Logs in and navigates through the motor insurance module",
+              "timedOut": null,
+              "duration": 30702,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(1280, 720);\n// Select a specific dropdown option\ncy.selectDropdown('.ng-select-container', 'AHO');\n// Navigate to the Motor Insurance Module\ncy.navigateToMotorInsuranceModule();\n// Fill in the Motor Insurance Form with provided details\ncy.fillMotorInsuranceForm({\n  businessType: 'New',\n  businessStatus: 'Yes',\n  businessSource: 'D : Digital (For Digital Dept.)',\n  policyDuration: 'Full',\n  validFrom: '2023-08-05',\n  businessSector: 'Engineering',\n  businessSubSector: 'Light Engineering',\n  contactNumber: '01538677800',\n  documentType: 'Certificate',\n  currencyType: 'BDT',\n  planType: 'Comprehensive',\n  vehicleName: 'Motor Cycle',\n  vehicleRegistrationNumber: 'Kha-3421',\n  engineAndChassisNumber: '1HGCM82633A004352',\n  vehicleMakeTypeAndBody: 'Two wheeler is Bajaj Dominar 400',\n  manufacturerYear: '2022',\n  motorCcTon: 'CC',\n  motorCcValue: '270',\n  motorTermsOfUse: 'USE ONLY FOR SOCIAL PURPOSE AND IN CONNECTION WITH THE INSUREDS BUSINESS -- 1233',\n  motorVehicleType: 'Commercial',\n  seatCapacity: '2',\n  passengerInfo: '1',\n  driverInfo: '1',\n  sumInsured: '200000'\n});\n// Get a quotation and add clauses\ncy.getQuotation();\ncy.addClause('2001');\n// Submit the form, modify risks, and recalculate premiums\ncy.submitForm();\ncy.modifyRiskAndRecalculate();\ncy.submitForm();",
+              "err": {
+                "message": "CypressError: `cy.click()` can only be called on a single element. Your subject contained 2 elements. Pass `{ multiple: true }` if you want to serially click each element.\n\nhttps://on.cypress.io/click",
+                "estack": "CypressError: `cy.click()` can only be called on a single element. Your subject contained 2 elements. Pass `{ multiple: true }` if you want to serially click each element.\n\nhttps://on.cypress.io/click\n    at mouseAction (https://cisqatest.green-delta.com/__cypress/runner/cypress_runner.js:112038:68)\n    at Context.click (https://cisqatest.green-delta.com/__cypress/runner/cypress_runner.js:112205:14)\n    at wrapped (https://cisqatest.green-delta.com/__cypress/runner/cypress_runner.js:137994:19)\nFrom Your Spec Code:\n    at Context.eval (webpack://cypress-project/./cypress/e2e/Bus_commercial.cy.js:159:62)",
+                "diff": null
+              },
+              "uuid": "f95aac19-eb67-4003-a0d1-6ff9a1b6b686",
+              "parentUUID": "4168365e-bb7c-4292-8fa9-8c84d3b09b1b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "f95aac19-eb67-4003-a0d1-6ff9a1b6b686"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 30702,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

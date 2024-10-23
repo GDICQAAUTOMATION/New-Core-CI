@@ -1,0 +1,198 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 1,
+    "pending": 0,
+    "failures": 4,
+    "start": "2024-10-23T08:59:27.266Z",
+    "end": "2024-10-23T08:59:58.986Z",
+    "duration": 31720,
+    "testsRegistered": 5,
+    "passPercent": 20,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "723c6a0f-53ce-4326-bff6-be94a01fe3df",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Check customer and add details- negative.cy.js",
+      "file": "cypress\\e2e\\Check customer and add details- negative.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "85e0b37e-276e-4e32-9779-511c4dd4af45",
+          "title": "Check edit function for customer and continue",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should edit customer details and continue",
+              "fullTitle": "Check edit function for customer and continue should edit customer details and continue",
+              "timedOut": null,
+              "duration": 14781,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Click the button to add a new entry or customer\ncy.get('.card-toolbar > .btn').click();\n// Click the dropdown button in the first row of entries\ncy.get(':nth-child(1) > :nth-child(7) > :nth-child(1) > .d-inline-block > #dropdownBasic1').click();\n// Click on the \"Edit\" option from the dropdown menu\ncy.get(':nth-child(1) > :nth-child(7) > :nth-child(1) > .d-inline-block > .dropdown-menu > .dropdown-item').click();\n// Type in the new name for the customer in the input field\ncy.get(':nth-child(13) > .input-group > .form-control').clear().type('Abdul Nasir');\n// Click the \"Save\" button in the modal\ncy.get('.modal-footer > .btn-primary').click();\n// Ensure that the confirmation modal appears and click \"Confirm\"\ncy.get('.confirm__modal__content').should('be.visible');\ncy.get('.confirm__modal__content > .btn-primary').click();\n// Wait for any post-confirmation actions to complete\ncy.wait(1000);\n// Verify that the customer was edited successfully\ncy.get('.confirm__modal__content > .btn').click();\n// Select the newly edited customer using the checkbox in the list\ncy.get(':nth-child(1) > .sorting_1 > .checkbox > span').click();\n// Click the \"Continue\" button to proceed with the selected customer\ncy.get('.flex-between > [style=\"align-items: center;\"] > :nth-child(2) > .btn').click();\n// Ensure that the business type dropdown is visible before interacting\ncy.get('ng-select[formcontrolname=\"businessType\"]').click();\n// Wait for the dropdown options to be loaded and visible\ncy.get('.ng-dropdown-panel .ng-option').should('be.visible');\n// Select \"New\" from the business type dropdown\ncy.get('.ng-dropdown-panel .ng-option').contains('New').click();\n// Verify that \"New\" is selected in the business type dropdown\ncy.get('ng-select[formcontrolname=\"businessType\"] .ng-value-container').should('contain', 'New');\n// Click continue on the footer\ncy.get('.form-footer > :nth-child(2) > .btn').click();",
+              "err": {},
+              "uuid": "f1ec9185-36d3-467e-9a60-0d51a914ab3f",
+              "parentUUID": "85e0b37e-276e-4e32-9779-511c4dd4af45",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show an error when editing with an empty name",
+              "fullTitle": "Check edit function for customer and continue should show an error when editing with an empty name",
+              "timedOut": null,
+              "duration": 4152,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.card-toolbar > .btn').click();\ncy.get(':nth-child(1) > :nth-child(7) > :nth-child(1) > .d-inline-block > #dropdownBasic1').click();\ncy.get(':nth-child(1) > :nth-child(7) > :nth-child(1) > .d-inline-block > .dropdown-menu > .dropdown-item').click();\n// Clear the input field for customer name\ncy.get(':nth-child(13) > .input-group > .form-control').clear();\n// Click the \"Save\" button\ncy.get('.modal-footer > .btn-primary').click();\n// Check for error message\ncy.get('.error-message').should('be.visible').and('contain', 'Name is required');\ncy.screenshot('Empty Name Error'); // Log the error",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.card-toolbar > .btn`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.card-toolbar > .btn`, but never found it.\n    at Context.eval (webpack://cypress-project/./cypress/e2e/Check customer and add details- negative.cy.js:81:9)",
+                "diff": null
+              },
+              "uuid": "46b4b3f7-317c-4d3c-8998-3032c48b587a",
+              "parentUUID": "85e0b37e-276e-4e32-9779-511c4dd4af45",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show an error when editing with invalid characters",
+              "fullTitle": "Check edit function for customer and continue should show an error when editing with invalid characters",
+              "timedOut": null,
+              "duration": 4182,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.card-toolbar > .btn').click();\ncy.get(':nth-child(1) > :nth-child(7) > :nth-child(1) > .d-inline-block > #dropdownBasic1').click();\ncy.get(':nth-child(1) > :nth-child(7) > :nth-child(1) > .d-inline-block > .dropdown-menu > .dropdown-item').click();\n// Type in invalid characters for customer name\ncy.get(':nth-child(13) > .input-group > .form-control').clear().type('!@#$%^&*()');\n// Click the \"Save\" button\ncy.get('.modal-footer > .btn-primary').click();\n// Check for error message\ncy.get('.error-message').should('be.visible').and('contain', 'Invalid name format');\ncy.screenshot('Invalid Name Error'); // Log the error",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.card-toolbar > .btn`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.card-toolbar > .btn`, but never found it.\n    at Context.eval (webpack://cypress-project/./cypress/e2e/Check customer and add details- negative.cy.js:98:9)",
+                "diff": null
+              },
+              "uuid": "89ad8c24-e7e3-4a5b-a38a-fbd96ee42c4d",
+              "parentUUID": "85e0b37e-276e-4e32-9779-511c4dd4af45",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show an error when continuing without selecting a business type",
+              "fullTitle": "Check edit function for customer and continue should show an error when continuing without selecting a business type",
+              "timedOut": null,
+              "duration": 4203,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.card-toolbar > .btn').click();\ncy.get(':nth-child(1) > :nth-child(7) > :nth-child(1) > .d-inline-block > #dropdownBasic1').click();\ncy.get(':nth-child(1) > :nth-child(7) > :nth-child(1) > .d-inline-block > .dropdown-menu > .dropdown-item').click();\n// Type in a valid customer name\ncy.get(':nth-child(13) > .input-group > .form-control').clear().type('Abdul Nasir');\ncy.get('.modal-footer > .btn-primary').click();\ncy.get('.confirm__modal__content > .btn-primary').click();\n// Select the newly edited customer using the checkbox in the list\ncy.get(':nth-child(1) > .sorting_1 > .checkbox > span').click();\n// Click the \"Continue\" button without selecting a business type\ncy.get('.flex-between > [style=\"align-items: center;\"] > :nth-child(2) > .btn').click();\n// Check for error message\ncy.get('.error-message').should('be.visible').and('contain', 'Business type is required');\ncy.screenshot('Missing Business Type Error'); // Log the error",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.card-toolbar > .btn`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.card-toolbar > .btn`, but never found it.\n    at Context.eval (webpack://cypress-project/./cypress/e2e/Check customer and add details- negative.cy.js:115:9)",
+                "diff": null
+              },
+              "uuid": "264d561e-3d23-4e5a-8a9e-069b0de7bc8e",
+              "parentUUID": "85e0b37e-276e-4e32-9779-511c4dd4af45",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show an error when trying to save without selecting a customer",
+              "fullTitle": "Check edit function for customer and continue should show an error when trying to save without selecting a customer",
+              "timedOut": null,
+              "duration": 4192,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.card-toolbar > .btn').click();\n// Click the \"Continue\" button without selecting any customer\ncy.get('.flex-between > [style=\"align-items: center;\"] > :nth-child(2) > .btn').click();\n// Check for error message\ncy.get('.error-message').should('be.visible').and('contain', 'Please select a customer');\ncy.screenshot('No Customer Selected Error'); // Log the error",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.card-toolbar > .btn`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.card-toolbar > .btn`, but never found it.\n    at Context.eval (webpack://cypress-project/./cypress/e2e/Check customer and add details- negative.cy.js:137:9)",
+                "diff": null
+              },
+              "uuid": "d07a778d-3238-40d0-9627-832d489325a0",
+              "parentUUID": "85e0b37e-276e-4e32-9779-511c4dd4af45",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f1ec9185-36d3-467e-9a60-0d51a914ab3f"
+          ],
+          "failures": [
+            "46b4b3f7-317c-4d3c-8998-3032c48b587a",
+            "89ad8c24-e7e3-4a5b-a38a-fbd96ee42c4d",
+            "264d561e-3d23-4e5a-8a9e-069b0de7bc8e",
+            "d07a778d-3238-40d0-9627-832d489325a0"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 31510,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

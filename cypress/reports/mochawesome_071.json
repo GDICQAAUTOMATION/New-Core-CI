@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-10-23T08:59:15.476Z",
+    "end": "2024-10-23T08:59:25.231Z",
+    "duration": 9755,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "584b0330-1052-4033-a970-21cda45b2e59",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Bus_commercial.cy.js",
+      "file": "cypress\\e2e\\Bus_commercial.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1f6e9100-c13a-4977-93c6-2e86b448fc7e",
+          "title": "GDIC CI Motor test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logs in and navigates through the motor insurance module",
+              "fullTitle": "GDIC CI Motor test Logs in and navigates through the motor insurance module",
+              "timedOut": null,
+              "duration": 9687,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(1280, 720);\ncy.visit('https://cisqatest.green-delta.com/');\nlogin('22222', 'APURNAKHAN1412');\nselectDropdown('businessType', 'New');\nselectDropdown('businessStatus', 'Yes');\nselectDropdown('businessSource', 'D : Digital (For Digital Dept.)');\nselectDropdown('policyDuration', 'Full');\nselectDropdown('businessSector', 'Engineering');\nselectDropdown('businessSubSector', 'Light Engineering');\n// Type and select the contact number\ncy.get('div[role=\"combobox\"][aria-haspopup=\"listbox\"]').find('input[aria-autocomplete=\"list\"]').last().type('01538677800');\ncy.contains('01538677800').click();\n// Select other options\nselectDropdown('productCode', 'MTR');\nselectDropdown('documentType', 'Certificate');\nselectDropdown('currencyType', 'BDT');\nselectDropdown('mtrPlanName', 'Comprehensive');\nselectDropdown('mtrVehicleName', 'Double Deck Bus');\nenterVehicleDetails('Kha-3421', '1HGCM82633A004352', 'BRTC Double Deck 400', '2022', '62');\nselectDropdown('mtrCcTon', 'SEAT');\nselectDropdown('motorTermsOfUseId', 'USE ONLY FOR SOCIAL PURPOSE AND IN CONNECTION WITH THE INSUREDS BUSINESS -- 1233');\nselectDropdown('mtrVehicleType', 'Commercial');\n// Enter additional information\ncy.get(':nth-child(15) > .input-group > .form-control').type('2');\ncy.get(':nth-child(2) > .mt-10 > :nth-child(2) > :nth-child(2) > .input-group > .form-control').type('1');\ncy.get(':nth-child(3) > :nth-child(2) > .input-group > .form-control').type('1');\n// Select options for gross premium and exclusions\nselectCheckboxes(':nth-child(2) > .border > .flex', [1, 2, 3]);\nselectCheckboxes(':nth-child(3) > .border > .flex', [1, 2]);\n// Set sum insured value and proceed\ncy.get(':nth-child(16) > .input-group > .form-control').type('200000');\ncy.get('.flex.mt-10 > :nth-child(2) > .select-group > .ng-select > .ng-select-container > .ng-value-container > .ng-input > input').type('{enter}');\n// Get quotation, submit, and screenshot\ncy.get('.mt-5 > .btn-secondary').click();\ncy.screenshot('Double Deck Bus');\ncy.get('.btn-primary').click();\n// Add clauses and finalize\ncy.get(':nth-child(1) > .checkbox-list > .checkbox > span').click();\ncy.get('.mr-10 > .ng-select > .ng-select-container > .ng-value-container > .ng-input > input').type('2001{enter}');\ncy.get('.ng-star-inserted > .btn').click();\ncy.get('.form-footer > :nth-child(2) > .btn').click();\ncy.screenshot('Preview Double Deck Bus');\n// Navigate back and modify risk\ncy.get('.form-footer > :nth-child(1) > .btn').click();\ncy.get('.mr-5 > .btn').click();\nselectCheckboxes(':nth-child(3) > .border > .flex', [1]);\ncy.get('.btn-primary').click();\ncy.wait(2000);\ncy.get('.mt-5 > .btn-primary').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `ng-select[formcontrolname=\"businessType\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `ng-select[formcontrolname=\"businessType\"]`, but never found it.\n    at selectDropdown (webpack://cypress-project/./cypress/e2e/Bus_commercial.cy.js:13:5)\n    at Context.eval (webpack://cypress-project/./cypress/e2e/Bus_commercial.cy.js:49:4)",
+                "diff": null
+              },
+              "uuid": "657c08de-aa85-40b4-93d6-6756b6183738",
+              "parentUUID": "1f6e9100-c13a-4977-93c6-2e86b448fc7e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "657c08de-aa85-40b4-93d6-6756b6183738"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 9687,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

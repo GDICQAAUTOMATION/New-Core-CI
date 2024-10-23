@@ -1,0 +1,148 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-10-22T04:08:34.594Z",
+    "end": "2024-10-22T04:09:18.223Z",
+    "duration": 43629,
+    "testsRegistered": 3,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4046f12b-86cc-4869-bd6f-d99abb71db2a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Motor Endorsement.cy.js",
+      "file": "cypress\\e2e\\Motor Endorsement.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2d1f3bea-669a-4548-b949-ab8c37aa3f34",
+          "title": "GDIC CI Motor Endorsement test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logs in and navigates through the motor insurance endorsement module",
+              "fullTitle": "GDIC CI Motor Endorsement test Logs in and navigates through the motor insurance endorsement module",
+              "timedOut": null,
+              "duration": 12927,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Set Viewport\ncy.viewport(1280, 720);\n// Set Viewport\ncy.viewport(1280, 720);\n// Visit the login page\ncy.visit('https://cisqatest.green-delta.com/');\n// Perform login\ncy.get('.mb-5 > .input-group > .form-control').click().type('22222');\ncy.get(':nth-child(3) > .input-group > .form-control').click().type('APURNAKHAN1412');\ncy.get('#kt_login_signin_submit').click();\n// Wait for the page to load\ncy.wait(2000);\n// Open the dropdown menu and select \"AHO\"\ncy.get('.ng-select-container').click();\ncy.get('.ng-option').contains('AHO').click();\ncy.get('.ng-select-container').should('contain', 'AHO');\n// Navigate to the motor insurance module\ncy.get(':nth-child(3) > .menu-toggle > .menu-arrow').click();\ncy.get('.menu-item-open > .menu-submenu > .menu-subnav > :nth-child(4) > .menu-link > .menu-text').click();\ncy.wait(2000);\ncy.get('.menu-item-active > .menu-link > .menu-text').click();\ncy.get(':nth-child(4) > :nth-child(9) > :nth-child(1) > .d-inline-block > #dropdownBasic1').click({\n  force: true\n});\ncy.get(':nth-child(4) > :nth-child(9) > :nth-child(1) > .d-inline-block > .dropdown-menu > :nth-child(3)').click({\n  force: true\n});\n//Non financial endorsement\ncy.get(':nth-child(1) > .select-group > .ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();\ncy.get('.ng-option').contains('Non Financial').click();\n//Change head\ncy.get(':nth-child(2) > .select-group > .ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();\ncy.get('.ng-option').contains('Insured name change').click();\n//change name from popup\ncy.get('.mb-5 > .input-group > .form-control').type('Taiba jannat');\n//last name\ncy.get(':nth-child(2) > .input-group > .form-control').type('Rahman');\n//changed name submission\ncy.get('#required-fields > .flex > .btn').click();\n// decline process\ncy.get('.btn-danger').click();\n//remove tesxt from field test\ncy.get('.mb-5 > .input-group > .form-control').clear();\ncy.get('.mb-5 > .input-group > .form-control').type('Taiba jannat');\n//updation\ncy.get('#required-fields > .flex > .btn').click();\n//accept\ncy.get('.confirm__modal__content > .btn-primary').click();\n//cy.screenshot('gender needed error')\ncy.get('#required-fields > .flex > .btn').click();\n//click on update",
+              "err": {},
+              "uuid": "b612b248-0749-4249-9b7b-df88f83d7c25",
+              "parentUUID": "2d1f3bea-669a-4548-b949-ab8c37aa3f34",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Logs in and navigates through the motor insurance non financial endorsement module",
+              "fullTitle": "GDIC CI Motor Endorsement test Logs in and navigates through the motor insurance non financial endorsement module",
+              "timedOut": null,
+              "duration": 17172,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Set Viewport\ncy.viewport(1280, 720);\n//file to be uploaded path in project folder\nconst p = 'Picture.png';\n// Visit the login page\ncy.visit('https://cisqatest.green-delta.com/');\n// Perform login\ncy.get('.mb-5 > .input-group > .form-control').click().type('22222');\ncy.get(':nth-child(3) > .input-group > .form-control').click().type('APURNAKHAN1412');\ncy.get('#kt_login_signin_submit').click();\n// Wait for the page to load\ncy.wait(2000);\n// Open the dropdown menu and select \"AHO\"\ncy.get('.ng-select-container').click();\ncy.get('.ng-option').contains('AHO').click();\ncy.get('.ng-select-container').should('contain', 'AHO');\n// Navigate to the motor insurance module\ncy.get(':nth-child(3) > .menu-toggle > .menu-arrow').click();\ncy.get('.menu-item-open > .menu-submenu > .menu-subnav > :nth-child(4) > .menu-link > .menu-text').click();\ncy.wait(2000);\ncy.get('.menu-item-active > .menu-link > .menu-text').click();\ncy.get(':nth-child(3) > :nth-child(9) > :nth-child(1) > .d-inline-block > #dropdownBasic1').click({\n  force: true\n});\ncy.get(':nth-child(3) > :nth-child(9) > :nth-child(1) > .d-inline-block > .dropdown-menu > :nth-child(3)').click({\n  force: true\n});\n// financial endorsement\ncy.get(':nth-child(1) > .select-group > .ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();\ncy.get('.ng-option').contains('Financial').click();\n//Change head\ncy.get(':nth-child(2) > .select-group > .ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();\ncy.get('.ng-option').contains('Change in Sum Insured').click();\ncy.get('.flex > .btn').click();\n//select premium mode\ncy.get('.pr-10 > .flex > :nth-child(3) > .select-group > .ng-select > .ng-select-container > .ng-value-container > .ng-input').click();\ncy.get('.ng-option').contains('Refund').click();\n// /select sum insured type\ncy.get(':nth-child(16) > .select-group > .ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();\ncy.get('.ng-option').contains('Decrease').click();\n//upload file with attachFile\ncy.get('label > #fileUpload').attachFile(p);\n//get quote\ncy.get('.mt-5 > .btn-secondary').click();\ncy.wait(2000);\ncy.get('.justify-content-end > .btn-primary').click();\n// /select sum insured type\ncy.get(':nth-child(16) > .select-group > .ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();\ncy.get('.ng-option').contains('Decrease').click();\ncy.get('.mt-5 > .btn-secondary').click();\n//select continue\ncy.get('.justify-content-end > .btn-primary').click();\n//clause continue\ncy.get('.form-footer > :nth-child(2) > .btn').click();\n//click on submit\ncy.get('.form-footer > :nth-child(3) > .btn').click();\ncy.get('.confirm__modal__content > .btn-primary').click();\n//click on upload\n//cy.get('#file-submit').click()\n//verify uploade",
+              "err": {},
+              "uuid": "62ec0280-190d-49d2-b9e1-8186f6f01ec7",
+              "parentUUID": "2d1f3bea-669a-4548-b949-ab8c37aa3f34",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Logs in and navigates through the motor insurance financial-refund endorsement module",
+              "fullTitle": "GDIC CI Motor Endorsement test Logs in and navigates through the motor insurance financial-refund endorsement module",
+              "timedOut": null,
+              "duration": 13281,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Set Viewport\ncy.viewport(1280, 720);\n//file to be uploaded path in project folder\nconst p = 'Picture.png';\n// Visit the login page\ncy.visit('https://cisqatest.green-delta.com/');\n// Perform login\ncy.get('.mb-5 > .input-group > .form-control').click().type('22222');\ncy.get(':nth-child(3) > .input-group > .form-control').click().type('APURNAKHAN1412');\ncy.get('#kt_login_signin_submit').click();\n// Wait for the page to load\ncy.wait(2000);\n// Open the dropdown menu and select \"AHO\"\ncy.get('.ng-select-container').click();\ncy.get('.ng-option').contains('AHO').click();\ncy.get('.ng-select-container').should('contain', 'AHO');\n// Navigate to the motor insurance module\ncy.get(':nth-child(3) > .menu-toggle > .menu-arrow').click();\ncy.get('.menu-item-open > .menu-submenu > .menu-subnav > :nth-child(4) > .menu-link > .menu-text').click();\ncy.wait(2000);\ncy.get('.menu-item-active > .menu-link > .menu-text').click();\ncy.get(':nth-child(2) > :nth-child(9) > :nth-child(1) > .d-inline-block > #dropdownBasic1').click({\n  force: true\n});\ncy.get(':nth-child(2) > :nth-child(9) > :nth-child(1) > .d-inline-block > .dropdown-menu > :nth-child(3)').click({\n  force: true\n});\n// financial endorsement\ncy.get(':nth-child(1) > .select-group > .ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();\ncy.get('.ng-option').contains('Financial').click();\n//Change head\ncy.get(':nth-child(2) > .select-group > .ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();\ncy.get('.ng-option').contains('Change in Sum Insured').click();\ncy.get('.flex > .btn').click();\n//select premium mode\ncy.get('.pr-10 > .flex > :nth-child(3) > .select-group > .ng-select > .ng-select-container > .ng-value-container > .ng-input').click();\ncy.get('.ng-option').contains('Refund').click();\n// /select sum insured type\ncy.get(':nth-child(16) > .select-group > .ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();\ncy.get('.ng-option').contains('Decrease').click();\n//get quote\ncy.get('.mt-5 > .btn-secondary').click();\ncy.wait(2000);\ncy.get('.justify-content-end > .btn-primary').click();\n// /select sum insured type\ncy.get(':nth-child(16) > .select-group > .ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();\ncy.get('.ng-option').contains('Decrease').click();\ncy.get('.mt-5 > .btn-secondary').click();\n//select continue\ncy.get('.justify-content-end > .btn-primary').click();\n//clause continue\ncy.get('.form-footer > :nth-child(2) > .btn').click();\n//click on submit\ncy.get('.form-footer > :nth-child(3) > .btn').click();\ncy.get('.confirm__modal__content > .btn-primary').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `:nth-child(1) > .select-group > .ng-select > .ng-select-container > .ng-value-container > .ng-input > input`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `:nth-child(1) > .select-group > .ng-select > .ng-select-container > .ng-value-container > .ng-input > input`, but never found it.\n    at Context.eval (webpack://cypress-project/./cypress/e2e/Motor Endorsement.cy.js:173:9)",
+                "diff": null
+              },
+              "uuid": "5f7c69f9-89aa-430a-b31b-0f2f88c1f9a1",
+              "parentUUID": "2d1f3bea-669a-4548-b949-ab8c37aa3f34",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b612b248-0749-4249-9b7b-df88f83d7c25",
+            "62ec0280-190d-49d2-b9e1-8186f6f01ec7"
+          ],
+          "failures": [
+            "5f7c69f9-89aa-430a-b31b-0f2f88c1f9a1"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 43380,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
